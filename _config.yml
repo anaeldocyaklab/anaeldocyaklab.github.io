@@ -1,0 +1,17 @@
+title: DOC
+description: Coming soon
+url: "https://dev.anaeldocyaklab.com"
+baseurl: ""
+
+markdown: kramdown
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - vendor

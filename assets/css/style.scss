@@ -1,0 +1,173 @@
+---
+---
+
+:root {
+  --base: #1e1e2e;
+  --mantle: #181825;
+  --crust: #11111b;
+  --text: #cdd6f4;
+  --subtext: #a6adc8;
+  --peach: #fab387;
+  --mauve: #cba6f7;
+  --blue: #89b4fa;
+  --green: #a6e3a1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background:
+    radial-gradient(circle at 50% 45%, rgba(250, 179, 135, 0.16), transparent 28rem),
+    radial-gradient(circle at 20% 20%, rgba(203, 166, 247, 0.12), transparent 24rem),
+    radial-gradient(circle at 80% 80%, rgba(137, 180, 250, 0.10), transparent 22rem),
+    linear-gradient(135deg, var(--crust), var(--base));
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow: hidden;
+}
+
+.shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(90vw, 820px);
+  aspect-ratio: 1;
+}
+
+.orbital {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(72vw, 520px);
+  aspect-ratio: 1;
+}
+
+.orbital::before {
+  content: "";
+  position: absolute;
+  inset: 24%;
+  border-radius: 50%;
+  background: rgba(24, 24, 37, 0.58);
+  border: 1px solid rgba(250, 179, 135, 0.24);
+  box-shadow:
+    0 0 60px rgba(250, 179, 135, 0.16),
+    inset 0 0 40px rgba(250, 179, 135, 0.06);
+}
+
+h1 {
+  position: relative;
+  margin: 0;
+  font-size: clamp(5rem, 18vw, 12rem);
+  line-height: 0.9;
+  letter-spacing: -0.08em;
+  color: var(--peach);
+  text-shadow:
+    0 0 24px rgba(250, 179, 135, 0.35),
+    0 0 80px rgba(250, 179, 135, 0.18);
+}
+
+p {
+  position: absolute;
+  top: 63%;
+  margin: 0;
+  color: var(--subtext);
+  font-size: clamp(0.9rem, 2vw, 1.15rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.ring {
+  position: absolute;
+  border: 1px solid rgba(250, 179, 135, 0.24);
+  border-radius: 50%;
+}
+
+.ring-one {
+  inset: 8%;
+  transform: rotateX(62deg) rotateZ(-18deg);
+}
+
+.ring-two {
+  inset: 18%;
+  transform: rotateX(68deg) rotateZ(42deg);
+  border-color: rgba(137, 180, 250, 0.18);
+}
+
+.dot {
+  position: absolute;
+  width: 0.75rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--peach);
+  box-shadow: 0 0 22px rgba(250, 179, 135, 0.8);
+}
+
+.dot-one {
+  animation: orbit-one 12s linear infinite;
+}
+
+.dot-two {
+  background: var(--mauve);
+  box-shadow: 0 0 22px rgba(203, 166, 247, 0.7);
+  animation: orbit-two 16s linear infinite;
+}
+
+.dot-three {
+  background: var(--blue);
+  box-shadow: 0 0 22px rgba(137, 180, 250, 0.7);
+  animation: orbit-three 20s linear infinite;
+}
+
+.compact h1 {
+  font-size: clamp(4rem, 16vw, 9rem);
+}
+
+@keyframes orbit-one {
+  from { transform: rotate(0deg) translateX(250px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(250px) rotate(-360deg); }
+}
+
+@keyframes orbit-two {
+  from { transform: rotate(120deg) translateX(190px) rotate(-120deg); }
+  to { transform: rotate(480deg) translateX(190px) rotate(-480deg); }
+}
+
+@keyframes orbit-three {
+  from { transform: rotate(240deg) translateX(130px) rotate(-240deg); }
+  to { transform: rotate(600deg) translateX(130px) rotate(-600deg); }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    width: 100vw;
+  }
+
+  @keyframes orbit-one {
+    from { transform: rotate(0deg) translateX(150px) rotate(0deg); }
+    to { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+  }
+
+  @keyframes orbit-two {
+    from { transform: rotate(120deg) translateX(120px) rotate(-120deg); }
+    to { transform: rotate(480deg) translateX(120px) rotate(-480deg); }
+  }
+
+  @keyframes orbit-three {
+    from { transform: rotate(240deg) translateX(85px) rotate(-240deg); }
+    to { transform: rotate(600deg) translateX(85px) rotate(-600deg); }
+  }
+}
